@@ -1,5 +1,4 @@
 import math
-import pdb
 headers = []
 def parseLines(filename):
     f = open(filename)
@@ -9,19 +8,11 @@ def parseLines(filename):
     f.close()
     
     featureSet = []
-    classSet = []
     for line in lines:
         values = map(int, line.strip().split(","))
         feature = dict(zip(headers, values))
         featureSet.append(feature)
     return featureSet
-
-def classEntropy(listValues):
-    datasize = len(listValues) * 1.0
-    pos = len([i for i in listValues if i == 1])
-    pa = pos / datasize
-    pb = (datasize - pos) / datasize
-    return calculateEntropy(pa, pb)
 
 def calculateEntropy(pa, pb):
     if pa != 0.0 and pb != 0.0:
@@ -53,5 +44,5 @@ def calculateClassEntropyGivenAttr(headerName, attrValuesPos, attrValuesNeg):
         posEntropy = sizePos / totalDataSize * calculateEntropy(posInstance1 / sizePos, negInstance1 / sizePos)
         negEntropy = sizeNeg / totalDataSize * calculateEntropy(posInstance0 / sizeNeg, negInstance0 / sizeNeg)
         
-        return (posEntropy + negEntropy)
+        return round((posEntropy + negEntropy), 4)
     return 1
