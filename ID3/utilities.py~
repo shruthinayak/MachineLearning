@@ -15,12 +15,7 @@ def parseLines(filename):
     return featureSet
 
 def calculateEntropy(pa, pb):
-    if pa == 0.0:
-        if pb != 0.0:
-            return -pb * math.log(pb, 2)
-    elif(pb == 0.0):
-        return -pa * math.log(pa, 2)
-    else:
+    if pa != 0.0 and pb != 0.0:
         return -pa * math.log(pa, 2) - pb * math.log(pb, 2)
     return 1
 
@@ -51,4 +46,3 @@ def calculateClassEntropyGivenAttr(headerName, attrValuesPos, attrValuesNeg):
         
         return round((posEntropy + negEntropy), 4)
     return 1
-

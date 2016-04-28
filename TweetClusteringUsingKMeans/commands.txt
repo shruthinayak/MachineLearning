@@ -1,0 +1,10 @@
+PART 1:
+	
+python kmeans.py 25 test_data.txt outputkmeans.txt
+
+______________________________________________________________________________
+
+PART 2:
+
+python tweet-k-means.py InitialSeeds.txt Tweets.json tweets-k-means-output.txt
+

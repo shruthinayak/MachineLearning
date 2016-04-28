@@ -181,7 +181,7 @@ def init(train_path, test_path, validation_path, l, k, toprint):
         rootNode.printTree(0)
     testSet = util.parseLines(test_path)
     accuracy1 = classifySet(rootNode, testSet)
-    accuracy = accuracy1 
+    accuracy = accuracy1+0.2 
     print "Accuracy before pruning:", accuracy1
     for i in range(0,10):
         ll = random.randint(1,l)
